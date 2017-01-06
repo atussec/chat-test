@@ -1,7 +1,17 @@
 <div class="collection">
   <%= link_to "New Chat", new_chatroom_path %>
-<% @chatrooms.each do |chatroom| %>
-<%= link_to chatroom.name, chatroom_path(chatroom.id), class: "collection-item" %>
+  <div class="sent">
+    <h4>Sent messages</h4>
+    <% @chatrooms.each do |chatroom| %>
+    <%= link_to chatroom.name, chatroom_path(chatroom.id), class: "collection-item" %>
 
-<% end %>
+    <% end %>
+  </div>
+<div class="inbox">
+  <h4>Inbox</h4>
+  <% @inbox.each do |chatroom| %>
+  <%= link_to chatroom.name, chatroom_path(chatroom.id), class: "collection-item" %>
+
+  <% end %>
+</div>
   </div>
