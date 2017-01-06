@@ -1,2 +1,10 @@
-<h1>Chatrooms#show</h1>
-<p>Find me in app/views/chatrooms/show.html.erb</p>
+<%= @chatroom.name %>
+<% @messages.each do |message| %>
+<%= render message %>
+
+<% end %>
+
+<%= form_for [@chatroom, Message.new] do |f| %>
+<%= f.text_field :body, autofocus: :true, class: "main_chat_form"  %>
+<%= f.submit %>
+<% end %>

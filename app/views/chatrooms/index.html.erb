@@ -1,0 +1,7 @@
+<div class="collection">
+  <%= link_to "New Chat", new_chatroom_path %>
+<% @chatrooms.each do |chatroom| %>
+<%= link_to chatroom.name, chatroom_path(chatroom.id), class: "collection-item" %>
+
+<% end %>
+  </div>

@@ -4,8 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         enum position: {
-             users: 0,
-             trainer: 1
-           }
+   enum position: {
+          users: 0,
+          trainer: 1
+          }
+  has_many :chatrooms
+  has_many :messages
+
 end
