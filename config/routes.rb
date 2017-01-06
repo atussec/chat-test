@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   root 'pages#index'
-  resources :chatrooms do
+  resources :chatrooms, path: '/conversations/' do
     resources :messages
   end
   devise_for :users

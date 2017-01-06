@@ -3,23 +3,17 @@
   <div class="row">
 
   <div class="input-field col s12">
-      <%= f.select :reciepient, User.all.ids %>
+    <label for="fenter_subject">Enter reciepient</label>
+    <div class="">
+            <%= f.select :reciepient, User.all - [current_user]).collect { |p| [ p.username, p.id ] } %>
+    </div>
 
-            <label for="fenter_subject">Enter reciepient</label>
+
+
   </div>
 
 
-
-  <%= f.fields_for :messages do |m| %>
-  <div class="input-field col s12">
-
-    <%= m.text_area :body,rows: '10', id: "textarea2", class: "materialize-textarea" %>
-<% end %>
-
-      </div>
-
-
-  <%= f.button "create thread", class: "waves-effect waves-light btn loginButton" %>
+  <%= f.button "create conversation", class: "waves-effect waves-light btn loginButton" %>
 
 </div>
 

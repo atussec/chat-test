@@ -4,6 +4,9 @@ class ChatroomsChannel < ApplicationCable::Channel
     current_user.chatrooms.each do |chatroom|
       stream_from "chatrooms:#{chatroom.id}"
     end
+    current_user.chatrooms.where(reciepient: current_user.id).each do |chatroom|
+      stream_from "chatrooms:#{chatroom.id}"
+    end
   end
 
   def unsubscribed

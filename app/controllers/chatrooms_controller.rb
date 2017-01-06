@@ -14,11 +14,7 @@ class ChatroomsController < ApplicationController
   end
   def create
     @chatroom = Chatroom.new(chatroom_params)
-    @chatroom.name = current_user.username
     @chatroom.user_id = current_user.id
-    # pry.binding
-    # @chatroom.messages.first.user_id = current_user.id
-    # @chatroom.user = current_user
     respond_to do |format|
       if @chatroom.save
         # @chatroom.chatroom_users.where(user_id: current_user.id).first_or_create
